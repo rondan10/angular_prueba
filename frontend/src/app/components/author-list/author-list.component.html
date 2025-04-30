@@ -1,0 +1,51 @@
+<div class="evaluacion-content">
+  <div class="content-section">
+    <div class="search-bar">
+      <input type="text" placeholder="Buscar..." [(ngModel)]="searchTerm" (input)="filterAuthors()">
+    </div>
+
+    <button class="btn-nuevo" (click)="openNewAuthor()">Nuevo</button>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Género</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let author of filteredAuthors">
+          <td>{{author.id}}</td>
+          <td>{{author.nombre}}</td>
+          <td>{{author.genero}}</td>
+          <td>
+            <button class="btn-edit" (click)="editAuthor(author)">
+              <i class="fas fa-edit"></i>
+            </button>
+            <button class="btn-delete" (click)="deleteAuthor(author.id!)">
+              <i class="fas fa-trash"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="pagination">
+      <button (click)="previousPage()" [disabled]="currentPage === 1">Anterior</button>
+      <span *ngFor="let page of pages" 
+            [class.active]="currentPage === page"
+            (click)="goToPage(page)">
+        {{page}}
+      </span>
+      <button (click)="nextPage()" [disabled]="currentPage === totalPages">Siguiente</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal de nuevo/eddicion del autor -->
+<app-author-form *ngIf="showAuthorModal"
+                [author]="selectedAuthor"
+                (closeModal)="closeAuthorModal()">
+</app-author-form>

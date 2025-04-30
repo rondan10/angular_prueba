@@ -1,0 +1,89 @@
+<div class="container mt-4">
+  <h2>{{ isEditing ? 'Editar' : 'Nuevo' }} Libro</h2>
+  <form (ngSubmit)="onSubmit()" #bookForm="ngForm">
+    <div class="mb-3">
+      <label for="titulo" class="form-label">Título</label>
+      <input type="text" class="form-control" id="titulo" name="titulo" 
+             [(ngModel)]="formBook.titulo" required>
+    </div>
+    
+    <div class="mb-3">
+      <label for="descripcion" class="form-label">Descripción</label>
+      <textarea class="form-control" id="descripcion" name="descripcion" 
+                [(ngModel)]="formBook.descripcion" required></textarea>
+    </div>
+    
+    <div class="mb-3">
+      <label for="año" class="form-label">Año</label>
+      <input type="number" class="form-control" id="año" name="año" 
+             [(ngModel)]="formBook.anio" required>
+    </div>
+    
+    <div class="mb-3 author-section">
+      <label for="autor" class="form-label">Autor</label>
+      <div class="input-group">
+        <select class="form-select" id="autor" name="idAutor" 
+                [(ngModel)]="formBook.idAutor" required>
+          <option value="" disabled>Seleccione un autor</option>
+          <option *ngFor="let author of authors" [value]="author.id">
+            {{ author.nombre }}
+          </option>
+        </select>
+        <button type="button" class="btn btn-secondary" (click)="openNewAuthorModal()">
+          Nuevo Autor
+        </button>
+      </div>
+    </div>
+    
+    <div class="mb-3 form-check">
+      <input type="checkbox" class="form-check-input" id="publicado" name="publicado" 
+             [(ngModel)]="formBook.publicado">
+      <label class="form-check-label" for="publicado">Publicado</label>
+    </div>
+    
+    <button type="submit" class="btn btn-primary" [disabled]="!bookForm.form.valid">
+      {{ isEditing ? 'Actualizar' : 'Crear' }}
+    </button>
+    <a routerLink="/books" class="btn btn-secondary ms-2">Cancelar</a>
+  </form>
+</div>
+
+<!-- Modal para nnuevo autor -->
+<div class="modal" [class.show]="showAuthorModal" *ngIf="showAuthorModal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h3>Nuevo Autor</h3>
+      <button type="button" class="close" (click)="closeAuthorModal()">&times;</button>
+    </div>
+    
+    <div class="modal-body">
+      <form (ngSubmit)="onAuthorSubmit()" #authorForm="ngForm">
+        <div class="form-group">
+          <label for="nombre">Autor</label>
+          <input type="text" class="form-control" id="nombre" name="nombre" 
+                [(ngModel)]="newAuthor.nombre" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="genero">Género</label>
+          <select class="form-control" id="genero" name="genero" 
+                [(ngModel)]="newAuthor.genero" required>
+            <option value="">Seleccione un género</option>
+            <option value="Masculino">Masculino</option>
+            <option value="Femenino">Femenino</option>
+            <option value="Otro">Otro</option>
+          </select>
+        </div>
+        
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" (click)="closeAuthorModal()">
+            Cancel
+          </button>
+          <button type="submit" class="btn btn-primary" [disabled]="!authorForm.form.valid">
+            OK
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

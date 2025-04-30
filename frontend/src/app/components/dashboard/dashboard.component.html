@@ -1,0 +1,70 @@
+<div class="dashboard-container">
+  <div class="top-header">
+    <div class="menu-section">
+      <h3>Dashboard</h3>
+    </div>
+    <div class="right-section">
+      <span class="username">Usuario</span>
+      <i class="fas fa-sign-out-alt"></i>
+    </div>
+  </div>
+
+  <div class="charts-container">
+    <!-- Lubros por año -->
+    <div class="chart-section">
+      <div class="chart-header">
+        <h2 class="chart-title">Libros por Año</h2>
+      </div>
+      <div class="chart-container">
+        <div *ngIf="!booksPerYearOption" class="loading-overlay">
+          <div class="loading-spinner"></div>
+        </div>
+        <div echarts [options]="booksPerYearOption" class="chart"></div>
+      </div>
+    </div>
+
+    <div class="metrics-row">
+      <!-- estado de publicacion libos -->
+      <div class="chart-section">
+        <div class="chart-header">
+          <h2 class="chart-title">Estado de Publicación</h2>
+        </div>
+        <div class="chart-container">
+          <div *ngIf="!publishStatusOption" class="loading-overlay">
+            <div class="loading-spinner"></div>
+          </div>
+          <div echarts [options]="publishStatusOption" class="chart"></div>
+        </div>
+      </div>
+
+      <!-- generod de autor -->
+      <div class="chart-section">
+        <div class="chart-header">
+          <h2 class="chart-title">Distribución por Género</h2>
+        </div>
+        <div class="chart-container">
+          <div *ngIf="!authorGenreOption" class="loading-overlay">
+            <div class="loading-spinner"></div>
+          </div>
+          <div echarts [options]="authorGenreOption" class="chart"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- imulacion de registros segun lo detallado -->
+    <div class="chart-section">
+      <div class="chart-header">
+        <h2 class="chart-title">Simulación de Registros en Tiempo Real</h2>
+        <div class="data-info">
+          Registros actuales: {{recordsData[recordsData.length - 1] | number}}
+        </div>
+      </div>
+      <div class="chart-container">
+        <div *ngIf="!recordsSimulationOption" class="loading-overlay">
+          <div class="loading-spinner"></div>
+        </div>
+        <div echarts [options]="recordsSimulationOption" class="chart"></div>
+      </div>
+    </div>
+  </div>
+</div>

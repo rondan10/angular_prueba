@@ -1,0 +1,56 @@
+[
+  {
+    "id": "1",
+    "titulo": "Don Quijote de la Mancha",
+    "descripcion": "La obra maestra de la literatura espaniola",
+    "anio": 1605,
+    "idAutor": "1",
+    "publicado": true,
+    "fechaRegistro": "2025-04-30T10:00:00.000Z"
+  },
+  {
+    "id": "2",
+    "titulo": "Cien anios de soledad",
+    "descripcion": "Realismo mágico en Macondo",
+    "anio": 1967,
+    "idAutor": "2",
+    "publicado": true,
+    "fechaRegistro": "2025-04-30T10:01:00.000Z"
+  },
+  {
+    "id": "3",
+    "titulo": "La casa de los espíritus",
+    "descripcion": "Saga familiar en Chile",
+    "anio": 1982,
+    "idAutor": "3",
+    "publicado": true,
+    "fechaRegistro": "2025-04-30T10:02:00.000Z"
+  },
+  {
+    "id": "4",
+    "titulo": "Rayuela",
+    "descripcion": "Novela experimental",
+    "anio": 1963,
+    "idAutor": "4",
+    "publicado": true,
+    "fechaRegistro": "2025-04-30T10:03:00.000Z"
+  },
+  {
+    "id": "5",
+    "titulo": "El túnel",
+    "descripcion": "Novela psicológica",
+    "anio": 1948,
+    "idAutor": "5",
+    "publicado": false,
+    "fechaRegistro": "2025-04-30T10:04:00.000Z"
+  },
+  {
+    "id": "1746047979345",
+    "titulo": "La ciudad y los perros",
+    "descripcion": "Texto de ejemplo",
+    "anio": 1963,
+    "idAutor": "1746047975816",
+    "publicado": false,
+    "fechaRegistro": "2025-04-30T21:19:39.345Z"
+  }
+]

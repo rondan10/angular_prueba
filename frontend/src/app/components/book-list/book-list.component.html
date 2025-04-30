@@ -1,0 +1,71 @@
+<div class="evaluacion-content">
+  <div class="top-header">
+    <h2>EVALUACIÓN</h2>
+    <div class="user-info">
+      <span>Nombre de usuario</span>
+      <button class="btn-logout">
+        <i class="fas fa-sign-out-alt"></i>
+      </button>
+    </div>
+  </div>
+
+  <div class="content-section">
+    <div class="search-bar">
+      <input type="text" placeholder="Buscar..." [(ngModel)]="searchTerm" (input)="filterBooks()">
+    </div>
+
+    <button class="btn-nuevo" (click)="openNewBook()">Nuevo</button>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Título</th>
+          <th>Descripción</th>
+          <th>Año</th>
+          <th>Autor</th>
+          <th>Publicado</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let book of filteredBooks">
+          <td>{{book.id}}</td>
+          <td>{{book.titulo}}</td>
+          <td>{{book.descripcion}}</td>
+          <td>{{book.anio}}</td>
+          <td>{{getAuthorName(book.idAutor)}}</td>
+          <td>
+            <span class="badge" [class.badge-success]="book.publicado" [class.badge-secondary]="!book.publicado">
+              {{book.publicado ? 'Sí' : 'No'}}
+            </span>
+          </td>
+          <td>
+            <button class="btn-edit" (click)="editBook(book)">
+              <i class="fas fa-edit"></i>
+            </button>
+            <button class="btn-delete" (click)="deleteBook(book.id!)">
+              <i class="fas fa-trash"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="pagination">
+      <button (click)="previousPage()" [disabled]="currentPage === 1">Anterior</button>
+      <span *ngFor="let page of pages" 
+            [class.active]="currentPage === page"
+            (click)="goToPage(page)">
+        {{page}}
+      </span>
+      <button (click)="nextPage()" [disabled]="currentPage === totalPages">Siguiente</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal para editar o crear nuevo libro  -->
+<app-book-form *ngIf="showBookModal"
+               [book]="selectedBook"
+               (closeModal)="closeBookModal()">
+</app-book-form>

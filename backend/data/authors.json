@@ -1,0 +1,42 @@
+[
+  {
+    "id": "1",
+    "nombre": "Miguel de Cervantes",
+    "genero": "Masculino"
+  },
+  {
+    "id": "2",
+    "nombre": "Gabriel García Márquez",
+    "genero": "Masculino"
+  },
+  {
+    "id": "3",
+    "nombre": "Isabel Allende",
+    "genero": "Femenino"
+  },
+  {
+    "id": "4",
+    "nombre": "Julio Cortázar",
+    "genero": "Masculino"
+  },
+  {
+    "id": "5",
+    "nombre": "Ernesto Sábato",
+    "genero": "Masculino"
+  },
+  {
+    "id": "1746047975816",
+    "nombre": "Mario Vargas Llosa ",
+    "genero": "Masculino"
+  },
+  {
+    "id": "1746048059918",
+    "nombre": "Mario Vargas Llosa ",
+    "genero": "Masculino"
+  },
+  {
+    "id": "1746048072038",
+    "nombre": "Adrian Moises",
+    "genero": "Masculino"
+  }
+]
